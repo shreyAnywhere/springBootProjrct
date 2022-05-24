@@ -5,7 +5,6 @@ import com.googlecode.objectify.annotation.Id;
 
 import java.time.LocalDate;
 
-@Entity
 public class StudentDetails {
 
     @Id
