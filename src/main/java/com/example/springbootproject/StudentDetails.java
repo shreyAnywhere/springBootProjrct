@@ -4,7 +4,7 @@ import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import java.time.LocalDate;
 
-@Entity(name = "student")
+@Entity(name = "Student")
 public class StudentDetails {
 
     @Id
@@ -13,6 +13,15 @@ public class StudentDetails {
     private String email;
     private LocalDate dob;
     private int age;
+
+    public StudentDetails() {
+    }
+
+    public StudentDetails(String name, String email, int age) {
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
 
     public int getID() {
         return ID;

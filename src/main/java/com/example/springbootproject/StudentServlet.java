@@ -3,7 +3,7 @@ package com.example.springbootproject;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
-import org.springframework.web.bind.annotation.RestController;
+import com.googlecode.objectify.ObjectifyService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,12 +16,19 @@ public class StudentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+//        DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+//
+//        Entity e = new Entity("Student");
+//        e.setProperty("name", "Shrey");
+//        e.setProperty("email", "abc@gmail.com");
+//        ds.put(e);
+        String name = "abc";
+        String email = "abc@gmail.com";
+        int age = 25;
 
-        Entity e = new Entity("Student");
-        e.setProperty("name", "Shrey");
-        e.setProperty("email", "abc@gmail.com");
-        ds.put(e);
+        ObjectifyService.init();
+        StudentDetails studentDetails = new StudentDetails(name, email, age);
+        OfyService.ofy().save().entity(studentDetails).now();
 
         resp.getWriter().println("Hello world from servlet!!!");
     }
