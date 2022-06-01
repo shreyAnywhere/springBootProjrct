@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SpringBootProjectController {
 
-    @RequestMapping
-    public String returnMethod(){
-        return "hello world";
-    }
+//    @RequestMapping
+//    public String returnMethod(){
+//        return "hello world";
+//    }
 }
