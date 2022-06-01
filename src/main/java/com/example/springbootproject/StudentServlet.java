@@ -18,10 +18,10 @@ public class StudentServlet extends HttpServlet {
 
         DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
 
-//        Entity e = new Entity("Student");
-//        e.setProperty("name", "Shrey");
-//        e.setProperty("email", "abc@gmail.com");
-//        ds.put(e);
+        Entity e = new Entity("Student");
+        e.setProperty("name", "Shrey");
+        e.setProperty("email", "abc@gmail.com");
+        ds.put(e);
 
         resp.getWriter().println("Hello world from servlet!!!");
     }
