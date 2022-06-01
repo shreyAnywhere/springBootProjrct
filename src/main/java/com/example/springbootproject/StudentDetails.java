@@ -2,9 +2,9 @@ package com.example.springbootproject;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
-
 import java.time.LocalDate;
 
+@Entity(name = "student")
 public class StudentDetails {
 
     @Id
