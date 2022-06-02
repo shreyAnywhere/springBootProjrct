@@ -21,7 +21,7 @@ public class StudentServlet extends HttpServlet {
         int age = 25;
 
         try{
-            ObjectifyService.init();
+
             StudentDetails studentDetails = new StudentDetails();
             studentDetails.setName(name);
             studentDetails.setEmail(email);
