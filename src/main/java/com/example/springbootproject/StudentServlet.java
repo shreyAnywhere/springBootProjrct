@@ -34,7 +34,7 @@ public class StudentServlet extends HttpServlet {
             studentDetails.setAge(age);
             OfyService.ofy().save().entity(studentDetails).now();
         } catch (Exception e) {
-            resp.getWriter().println("Hello there is an error!!!");
+            throw new RuntimeException(e);
         }
 
         resp.getWriter().println("Hello world from servlet!!!");
