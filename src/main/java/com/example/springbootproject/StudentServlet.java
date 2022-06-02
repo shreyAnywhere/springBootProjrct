@@ -16,12 +16,6 @@ public class StudentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-//        DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
-//
-//        Entity e = new Entity("Student");
-//        e.setProperty("name", "Shrey");
-//        e.setProperty("email", "abc@gmail.com");
-//        ds.put(e);
         String name = "abc";
         String email = "abc@gmail.com";
         int age = 25;
@@ -34,7 +28,7 @@ public class StudentServlet extends HttpServlet {
             studentDetails.setAge(age);
             OfyService.ofy().save().entity(studentDetails).now();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
 
         resp.getWriter().println("Hello world from servlet!!!");
