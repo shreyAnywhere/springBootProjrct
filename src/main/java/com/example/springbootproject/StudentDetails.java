@@ -8,26 +8,17 @@ import java.time.LocalDate;
 public class StudentDetails {
 
     @Id
-    private int ID;
+    private long ID;
     private String name;
     private String email;
     private LocalDate dob;
     private int age;
 
-    public StudentDetails() {
-    }
-
-    public StudentDetails(String name, String email, int age) {
-        this.name = name;
-        this.email = email;
-        this.age = age;
-    }
-
-    public int getID() {
+    public long getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(long ID) {
         this.ID = ID;
     }
 

@@ -27,7 +27,10 @@ public class StudentServlet extends HttpServlet {
         int age = 25;
 
         ObjectifyService.init();
-        StudentDetails studentDetails = new StudentDetails(name, email, age);
+        StudentDetails studentDetails = new StudentDetails();
+        studentDetails.setName(name);
+        studentDetails.setEmail(email);
+        studentDetails.setAge(age);
         OfyService.ofy().save().entity(studentDetails).now();
 
         resp.getWriter().println("Hello world from servlet!!!");
