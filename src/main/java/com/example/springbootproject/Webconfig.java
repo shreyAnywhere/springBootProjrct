@@ -10,7 +10,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServlet;
 
 @Configuration
-@WebFilter
+@WebFilter("/objectify")
 public class Webconfig {
 
     @Bean
