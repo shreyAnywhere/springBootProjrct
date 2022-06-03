@@ -1,5 +1,7 @@
 package com.example.springbootproject;
 
+import com.google.cloud.datastore.DatastoreOptions;
+import com.googlecode.objectify.ObjectifyFactory;
 import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.VoidWork;
 
@@ -19,7 +21,12 @@ public class ObjectifyServlet extends HttpServlet {
         int age = 25;
 
         try{
-            ObjectifyService.init();
+            ObjectifyService.init(new ObjectifyFactory(
+                    DatastoreOptions.newBuilder()
+                            .setProjectId("firstwebapp-349714")
+                            .build()
+                            .getService()
+            ));
             ObjectifyService.run(new VoidWork() {
                 public void vrun() {
                     StudentDetails studentDetails = new StudentDetails();
