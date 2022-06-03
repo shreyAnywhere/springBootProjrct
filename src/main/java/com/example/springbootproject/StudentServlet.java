@@ -5,6 +5,7 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.googlecode.objectify.ObjectifyService;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,21 +17,8 @@ public class StudentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String name = "abc";
-        String email = "abc@gmail.com";
-        int age = 25;
-
-        try{
-
-            StudentDetails studentDetails = new StudentDetails();
-            studentDetails.setName(name);
-            studentDetails.setEmail(email);
-            studentDetails.setAge(age);
-            OfyService.ofy().save().entity(studentDetails).now();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        resp.getWriter().println("Hello world from servlet!!!");
+        RequestDispatcher rd = req.getRequestDispatcher("/objectify");
+        rd.forward(req, resp);
+        resp.getWriter().println("Hello world from Student servlet!!!");
     }
 }

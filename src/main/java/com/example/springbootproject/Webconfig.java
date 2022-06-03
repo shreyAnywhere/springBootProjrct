@@ -16,4 +16,13 @@ public class Webconfig {
         servRegBean.setLoadOnStartup(1);
         return servRegBean;
     }
+
+    @Bean
+    public ServletRegistrationBean<HttpServlet> objectifyServlet() {
+        ServletRegistrationBean<HttpServlet> servRegBean = new ServletRegistrationBean<>();
+        servRegBean.setServlet(new ObjectifyServlet());
+        servRegBean.addUrlMappings("/objectify");
+        servRegBean.setLoadOnStartup(1);
+        return servRegBean;
+    }
 }

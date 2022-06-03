@@ -11,7 +11,7 @@ import javax.swing.text.html.parser.Entity;
 public class SpringBootProjectApplication {
 
 	public static void main(String[] args) {
-		ObjectifyService.init();
+
 		SpringApplication.run(SpringBootProjectApplication.class, args);
 	}
 }
