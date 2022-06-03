@@ -5,9 +5,12 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServlet;
 
 @Configuration
+@WebFilter
 public class Webconfig {
 
     @Bean
