@@ -1,5 +1,7 @@
 package com.example.springbootproject;
 
+import com.googlecode.objectify.ObjectifyFilter;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,5 +26,14 @@ public class Webconfig {
         servRegBean.addUrlMappings("/objectify");
         servRegBean.setLoadOnStartup(1);
         return servRegBean;
+    }
+
+    @Bean
+    public FilterRegistrationBean<ObjectifyFilter> objectifyFilterRegistration() {
+        final FilterRegistrationBean<ObjectifyFilter> registration = new FilterRegistrationBean<>();
+        registration.setFilter(new ObjectifyFilter());
+        registration.addUrlPatterns("/");
+        registration.setOrder(1);
+        return registration;
     }
 }
