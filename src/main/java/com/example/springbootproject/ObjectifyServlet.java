@@ -27,15 +27,16 @@ public class ObjectifyServlet extends HttpServlet {
                             .build()
                             .getService()
             ));
-            ObjectifyService.run(new VoidWork() {
-                public void vrun() {
-                    StudentDetails studentDetails = new StudentDetails();
-                    studentDetails.setName(name);
-                    studentDetails.setEmail(email);
-                    studentDetails.setAge(age);
-                    OfyService.ofy().save().entity(studentDetails).now();
-                }
-            });
+            StudentDetails studentDetails = new StudentDetails();
+            studentDetails.setName(name);
+            studentDetails.setEmail(email);
+            studentDetails.setAge(age);
+            OfyService.ofy().save().entity(studentDetails).now();
+//            ObjectifyService.run(new VoidWork() {
+//                public void vrun() {
+//
+//                }
+//            });
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

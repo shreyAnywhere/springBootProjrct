@@ -32,7 +32,7 @@ public class Webconfig {
     public FilterRegistrationBean<ObjectifyFilter> objectifyFilterRegistration() {
         final FilterRegistrationBean<ObjectifyFilter> registration = new FilterRegistrationBean<>();
         registration.setFilter(new ObjectifyFilter());
-        registration.addUrlPatterns("/");
+        registration.addUrlPatterns("/objectify");
         registration.setOrder(1);
         return registration;
     }
