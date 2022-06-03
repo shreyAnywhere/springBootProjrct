@@ -19,6 +19,6 @@ public class StudentServlet extends HttpServlet {
 
         RequestDispatcher rd = req.getRequestDispatcher("/objectify");
         rd.forward(req, resp);
-        resp.getWriter().println("Hello world from Student servlet!!!");
+        //resp.getWriter().println("Hello world from Student servlet!!!");
     }
 }
