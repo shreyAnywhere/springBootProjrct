@@ -1,6 +1,7 @@
 package com.example.springbootproject;
 
 import com.googlecode.objectify.ObjectifyService;
+import com.googlecode.objectify.VoidWork;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,11 +20,15 @@ public class ObjectifyServlet extends HttpServlet {
 
         try{
             ObjectifyService.init();
-            StudentDetails studentDetails = new StudentDetails();
-            studentDetails.setName(name);
-            studentDetails.setEmail(email);
-            studentDetails.setAge(age);
-            OfyService.ofy().save().entity(studentDetails).now();
+            ObjectifyService.run(new VoidWork() {
+                public void vrun() {
+                    StudentDetails studentDetails = new StudentDetails();
+                    studentDetails.setName(name);
+                    studentDetails.setEmail(email);
+                    studentDetails.setAge(age);
+                    OfyService.ofy().save().entity(studentDetails).now();
+                }
+            });
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
